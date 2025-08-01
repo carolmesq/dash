@@ -4,6 +4,7 @@ import psycopg2
 import plotly.express as px
 from PIL import Image
 import os
+from sqlalchemy import create_engine
 import base64
 from io import BytesIO
 
@@ -78,9 +79,8 @@ def init_connection():
         )
         return conn
     except Exception as e:
-        st.error(f"Erro ao conectar ao banco de dados: {e}")
+        st.error(f"Erro ao conectar: {e}")
         return None
-
 
 conn = init_connection()
 
